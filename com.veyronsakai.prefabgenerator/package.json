@@ -7,5 +7,8 @@
     "dependencies": {
         "com.unity.test-framework": "1.0.0",
         "com.unity.ext.nunit": "1.0.0"
-    }
+    },
+    "author": {
+        "name": "VeyronSakai"
+      }
 }
