@@ -13,9 +13,13 @@ namespace Tests.EditMode
         private const string MockObjAbsPath = "Assets/Resources/" + MockObjName + ".prefab";
         private const string NeverUsedPrefabPath = "__NeverUsedPrefab__";
 
+        private PrefabFactory _factory;
+
         [OneTimeSetUp]
         public void SetUp()
         {
+            // Resourcesフォルダを作成する。もし既にあるなら作らない。
+            
             var obj = new GameObject
             {
                 name = MockObjName
@@ -23,6 +27,8 @@ namespace Tests.EditMode
 
             obj.AddComponent<MockPrefab>();
             PrefabUtility.SaveAsPrefabAsset(obj, MockObjAbsPath);
+            
+            _factory = new PrefabFactory();
         }
 
         [Test]
@@ -40,10 +46,9 @@ namespace Tests.EditMode
         public void Create_Return_Not_Null_Test()
         {
             // Arrange
-            var factory = new PrefabFactory();
 
             // Act
-            var sut = factory.Create<MockPrefab>(MockObjRelPath);
+            var sut = _factory.Create<MockPrefab>(MockObjRelPath);
 
             // Assertion
             Assert.AreNotEqual(sut, null);
@@ -53,26 +58,24 @@ namespace Tests.EditMode
         public void Create_Exception_Test1()
         {
             // Arrange
-            var factory = new PrefabFactory();
 
             // Act
 
             // Assertion
             // 指定した型の例外がテスト対象コードで吐かれたらテスト成功となる
-            Assert.Throws<ArgumentException>(() => factory.Create<MockPrefab>(NeverUsedPrefabPath));
+            Assert.Throws<ArgumentException>(() => _factory.Create<MockPrefab>(NeverUsedPrefabPath));
         }
 
         [Test]
         public void Create_Exception_Test2()
         {
             // Arrange
-            var factory = new PrefabFactory();
 
             // Act
 
             // Assertion
             // 指定した型の例外がテスト対象コードで吐かれたらテスト成功となる
-            Assert.Throws<ArgumentException>(() => factory.Create<MockPrefab>(NeverUsedPrefabPath));
+            Assert.Throws<ArgumentException>(() => _factory.Create<MockPrefab>(NeverUsedPrefabPath));
         }
         
         // TODO: Resourcesフォルダが無い場合は例外を出すことをテストする
