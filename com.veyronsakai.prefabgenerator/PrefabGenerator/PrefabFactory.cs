@@ -7,8 +7,6 @@ namespace PrefabGenerator
     {
         public T Create<T>(string prefabPath) where T : PrefabBase
         {
-            // TODO: Resourcesフォルダが無い場合は例外を出す
-            
             var obj = Resources.Load(prefabPath);
 
             if (obj == null)

@@ -77,8 +77,6 @@ namespace Tests.EditMode
             // 指定した型の例外がテスト対象コードで吐かれたらテスト成功となる
             Assert.Throws<ArgumentException>(() => _factory.Create<MockPrefab>(NeverUsedPrefabPath));
         }
-        
-        // TODO: Resourcesフォルダが無い場合は例外を出すことをテストする
 
         [OneTimeTearDown]
         public void TearDown()
