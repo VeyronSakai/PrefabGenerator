@@ -18,8 +18,6 @@ namespace Tests.EditMode
         [OneTimeSetUp]
         public void SetUp()
         {
-            // Resourcesフォルダを作成する。もし既にあるなら作らない。
-            
             var obj = new GameObject
             {
                 name = MockObjName
@@ -62,7 +60,6 @@ namespace Tests.EditMode
             // Act
 
             // Assertion
-            // 指定した型の例外がテスト対象コードで吐かれたらテスト成功となる
             Assert.Throws<ArgumentException>(() => _factory.Create<MockPrefab>(NeverUsedPrefabPath));
         }
 
@@ -74,7 +71,6 @@ namespace Tests.EditMode
             // Act
 
             // Assertion
-            // 指定した型の例外がテスト対象コードで吐かれたらテスト成功となる
             Assert.Throws<ArgumentException>(() => _factory.Create<MockPrefab>(NeverUsedPrefabPath));
         }
 
