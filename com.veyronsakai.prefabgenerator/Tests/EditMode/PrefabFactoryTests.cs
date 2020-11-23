@@ -30,17 +30,6 @@ namespace Tests.EditMode
         }
 
         [Test]
-        public void Can_Create_PrefabFactory_Instance_Test()
-        {
-            // Arrange
-
-            // Act
-            var instance = new PrefabFactory();
-
-            // Assertion
-        }
-
-        [Test]
         public void Create_Return_Not_Null_Test()
         {
             // Arrange
