@@ -25,7 +25,7 @@ namespace PrefabGenerator
 
             if (instance == null)
             {
-                throw new ArgumentException($"Script {typeof(T)} isn't attached to {prefabPath}");
+                throw new ArgumentException($"Script {typeof(T)} is not attached to {prefabPath}");
             }
 
             return instance;
