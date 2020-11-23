@@ -7,8 +7,6 @@ namespace PrefabGenerator
     {
         public T Create<T>(string prefabPath) where T : PrefabBase
         {
-            // あいうえお
-            
             var obj = Resources.Load(prefabPath);
 
             if (obj == null)
