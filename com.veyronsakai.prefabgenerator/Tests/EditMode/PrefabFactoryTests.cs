@@ -11,7 +11,7 @@ namespace Tests.EditMode
         private const string MockObjName = "MockPrefab";
         private const string MockObjRelPath = "MockPrefab";
         private const string MockObjAbsPath = "Assets/Resources/" + MockObjName + ".prefab";
-        private const string NeverUsedPrefabPath = "__NeverUsedPrefab__";
+        private const string NeverUsedPrefabPath = "__NeverUsedPrefab";
 
         private PrefabFactory _factory;
 
