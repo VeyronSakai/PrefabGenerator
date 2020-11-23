@@ -11,7 +11,7 @@ namespace PrefabGenerator
 
             if (obj == null)
             {
-                throw new ArgumentException($"指定したパス{prefabPath}にPrefabが存在しません。");
+                throw new ArgumentException($"Prefab does not exist in the path {prefabPath}");
             }
 
             var gameObject = UnityEngine.Object.Instantiate(obj) as GameObject;
@@ -25,7 +25,7 @@ namespace PrefabGenerator
 
             if (instance == null)
             {
-                throw new ArgumentException($"{typeof(T)}スクリプトが{prefabPath}にアタッチされていません。");
+                throw new ArgumentException($"Script {typeof(T)} isn't attached to {prefabPath}");
             }
 
             return instance;
