@@ -10,12 +10,7 @@ namespace PrefabGenerator
         {
             var obj = LoadPrefab(prefabPath);
 
-            var gameObject = Object.Instantiate(obj) as GameObject;
-
-            if (gameObject == null)
-            {
-                throw new InvalidCastException();
-            }
+            var gameObject = InstantiateGameObject(obj);
 
             var instance = gameObject.GetComponent<T>();
 
@@ -31,12 +26,7 @@ namespace PrefabGenerator
         {
             var obj = LoadPrefab(prefabPath);
 
-            var gameObject = Object.Instantiate(obj, parent) as GameObject;
-
-            if (gameObject == null)
-            {
-                throw new InvalidCastException();
-            }
+            var gameObject = InstantiateGameObject(obj, parent);
 
             var instance = gameObject.GetComponent<T>();
 
@@ -69,6 +59,13 @@ namespace PrefabGenerator
             return instance;
         }
 
+        public static void Create(string prefabPath, Transform parent)
+        {
+            var obj = LoadPrefab(prefabPath);
+
+            InstantiateGameObject(obj, parent);
+        }
+
         private static Object LoadPrefab(string prefabPath)
         {
             var obj = Resources.Load(prefabPath);
@@ -79,6 +76,27 @@ namespace PrefabGenerator
             }
 
             return obj;
+        }
+
+        private static GameObject InstantiateGameObject(Object obj, Transform parent = null)
+        {
+            GameObject gameObject;
+
+            if (parent == null)
+            {
+                gameObject = Object.Instantiate(obj) as GameObject;
+            }
+            else
+            {
+                gameObject = Object.Instantiate(obj, parent) as GameObject;
+            }
+
+            if (gameObject == null)
+            {
+                throw new InvalidCastException();
+            }
+
+            return gameObject;
         }
     }
 }
