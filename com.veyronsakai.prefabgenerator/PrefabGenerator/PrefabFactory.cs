@@ -6,7 +6,7 @@ namespace PrefabGenerator
 {
     public static class PrefabFactory
     {
-        public static T Create<T>(string prefabPath) where T : PrefabBase
+        public static T Create<T>(string prefabPath) where T : MonoBehaviour
         {
             var obj = LoadPrefab(prefabPath);
 
@@ -22,7 +22,7 @@ namespace PrefabGenerator
             return instance;
         }
 
-        public static T Create<T>(string prefabPath, Transform parent) where T : PrefabBase
+        public static T Create<T>(string prefabPath, Transform parent) where T : MonoBehaviour
         {
             var obj = LoadPrefab(prefabPath);
 
@@ -38,7 +38,7 @@ namespace PrefabGenerator
             return instance;
         }
 
-        public static T Create<T>(string prefabPath, Transform parent, Vector3 position) where T : PrefabBase
+        public static T Create<T>(string prefabPath, Transform parent, Vector3 position) where T : MonoBehaviour
         {
             var obj = LoadPrefab(prefabPath);
 
